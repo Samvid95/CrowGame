@@ -10,7 +10,15 @@ public class Obstacle : MonoBehaviour {
     void Start () {
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
 
-        InvokeRepeating("Switch", 0, switchTime);
+        
+        if(gameObject.tag == "WinPoint")
+        {
+            speed = 0;
+        }
+        else
+        {
+            InvokeRepeating("Switch", 0, switchTime);
+        }
     }
 
 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Bird : MonoBehaviour {
-
+    public LevelManager levelManager;
     public float speed = 2;
 
     public float force = 300;
@@ -21,7 +21,11 @@ public class Bird : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         // Restart
-        Application.LoadLevel(Application.loadedLevel);
+        if(coll.gameObject.tag == "WinPoint")
+        {
+            Debug.Log("Won the game");
+        }
+        
     } 
 }
 
